@@ -16,17 +16,20 @@ def song_decoder(song):
                         x=x+3
                         t+=1
                     else:
-                        if t==0:
-                            song1=song1+song[x]
-                        else:
-                            song1=song1+" "
-                            t=0
-                            break
+                        break
+                print(t)
+                if t==0:
+                    song1=song1+song[x]
+                else:
+                    song1=song1+" "
+                    t=0
         if(song1[0]==" "):
             song1=song1[1:]
         n=len(song1)
         if(song1[n-1]==" "):
             song1=song1[:n-1]
         return song1
+n=song_decoder("AWUBBWUBC")
+print(n)
 
         
