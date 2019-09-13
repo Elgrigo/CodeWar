@@ -29,5 +29,5 @@ def buddy(start, limit):
         sum1=0
         sum=0
     return ("Nothing")
-n=buddy(40, 80)
+n=buddy(1071625, 1103735)
 print(n)

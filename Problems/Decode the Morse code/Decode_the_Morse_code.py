@@ -1,23 +1,14 @@
 def decodeMorse(morse_code):
-    while True:
-        if morse_code[0]==" ":
-            morse_code=morse_code[1:]
-        else:
-            break
-    while True:
-        if morse_code[-1]==" ":
-            morse_code=morse_code[:-1]
-        else:
-            break
-    morse_code=" "+morse_code+" "
-    morse_code=morse_code.replace("  "," / ")
-    morse_code=morse_code.replace(" ","  ")
-    d = {' .- ': "A", ' -... ': "B", ' -.-. ': "C", ' -.. ': 'D', ' . ': 'E', ' ..-. ': 'F', ' --. ': 'G', ' .... ': 'H', ' .. ': 'I', ' .--- ': 'J', ' -.- ': 'K', ' .-.. ': 'L', ' -- ': 'M', ' -. ': 'N', ' --- ': 'O', ' .--. ': 'P', ' --.- ': 'Q',' ...---... ':'SOS', ' .-. ': 'R', ' ... ': 'S', ' - ': 'T', ' ..- ': 'U', ' ...- ': 'V', ' .-- ': 'W', ' -..- ': 'X', ' -.-- ': 'Y', ' --.. ': 'Z',' -.-.-- ':'!',' .-.-.- ':'.'}
-    for i in d:
-        morse_code=morse_code.replace(i," "+d[i]+' ')   
-        print(morse_code)
-    morse_code=morse_code.replace(" ","")
-    morse_code=morse_code.replace("/"," ")
-    return morse_code
+    d = {'.-': "A", '-...': "B", '-.-.': "C", '-..': 'D', '.': 'E', '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J', '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O', '.--.': 'P', '--.-': 'Q','...---...':'SOS', '.-.': 'R', '...': 'S', '-': 'T', '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y', '--..': 'Z','-.-.--':'!','.-.-.-':'.'}
+    list1=morse_code.split("   ")
+    for x in range(len(list1)):
+        list1[x]=list1[x].split()
+    for x in range(len(list1)):
+        for y in range(len(list1[x])):
+            list1[x][y]=d[list1[x][y]]
+    for x in range(len(list1)):
+        list1[x]="".join(list1[x])
+    morse_code=" ".join(list1).strip()
+    return(morse_code)
 n=decodeMorse('...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-')
 print(n)

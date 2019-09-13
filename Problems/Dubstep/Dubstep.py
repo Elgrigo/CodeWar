@@ -29,7 +29,7 @@ def song_decoder(song):
         if(song1[n-1]==" "):
             song1=song1[:n-1]
         return song1
-n=song_decoder("AWUBBWUBC")
+n=song_decoder("WUBAWUBBWUBC")
 print(n)
 
         
