@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>f65e1e42-2bfb-40b3-87d1-1c8e8efbdc2b</ProjectGuid>
+    <ProjectGuid>d5f9716f-f5c4-4288-ada2-7edb7f92a1a0</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>_____.py</StartupFile>
+    <StartupFile>All_Balanced_Parentheses.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>())()</Name>
-    <RootNamespace>())()</RootNamespace>
+    <Name>All Balanced Parentheses</Name>
+    <RootNamespace>All Balanced Parentheses</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="_____.py" />
+    <Compile Include="All_Balanced_Parentheses.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
