@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>23edd2d3-65bf-4eea-b0eb-9a5ca5fc8098</ProjectGuid>
+    <ProjectGuid>45eb9374-ee08-4411-9a39-0e0187836b07</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>people_list.py</StartupFile>
+    <StartupFile>File_Manager.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>people_list</Name>
-    <RootNamespace>people_list</RootNamespace>
+    <Name>File Manager</Name>
+    <RootNamespace>File Manager</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="people_list.py" />
+    <Compile Include="File_Manager.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

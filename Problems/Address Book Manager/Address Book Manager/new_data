@@ -1,9 +1,19 @@
 {
-  "people": [
+  "persons": [
     {
       "name": "Grigor Barseghyan",
       "phone": "055634069",
       "email": "grigor.barseghyan111@gmail.com"
+    },
+    {
+      "name": "Ann",
+      "phone": "055636363",
+      "email": "Ann@mail.com"
+    },
+    {
+      "name": "Hajk",
+      "phone": "485623",
+      "email": "Hajk111"
     }
   ]
 }
