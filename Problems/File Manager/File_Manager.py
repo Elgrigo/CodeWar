@@ -11,9 +11,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--path",help="your name",default="C:/Users/Toshiba/Desktop/CodeWarriors/Problems/File Manager/My Files",type=str)
 args = parser.parse_args()
 
-conn=sqlite3.connect('File.db')
+conn = sqlite3.connect('File.db')
             
-c=conn.cursor()
+c = conn.cursor()
 
 #c.execute("""CREATE TABLE files(
 #                Name text,
@@ -37,13 +37,13 @@ def delete_file_dict(name):
 
 def update_name(O_name,N_name,time):
     with conn:
-        c.execute("""UPDATE files SET Name = :New_Name AND ModDates=:ModDates
-                        WHERE Name=:Old_Name""",
-                        {'New_Name':N_name,'Old_Name':O_name,'ModDates':time})
+        c.execute("""UPDATE files SET Name = :New , ModDates=:ModDates
+                        WHERE Name=:Old""",
+                        {'New':N_name,'Old':O_name,'ModDates':time})
 
 def update_size(name,size,time):
     with conn:
-        c.execute("""UPDATE files SET Size = :Size WHERE Name=:Name AND ModDates=:ModDates""",
+        c.execute("""UPDATE files SET Size = :Size , ModDates=:ModDates WHERE Name=:Name""",
                         {'Name':name,'Size':size,'ModDates':time})
 
 while True:
@@ -59,15 +59,10 @@ s <filename> - shows content of the file
 q - exists from the program
 """)
     cmd = input("cmd>>")
-    with open('Data_Table','r') as json_file:
-        data = json.load(json_file)
 
     if cmd == "ls":
         c.execute("SELECT * FROM files")
         print(c.fetchall())
-        #print(tabulate(data, headers=["File name","File size", "Modification dates"]))
-        #print(data)
-        #print("\n")
 
     elif cmd == "cf":
         name = input("File name:")
@@ -75,40 +70,22 @@ q - exists from the program
         open(filepath,"a").close()
         time1 = time.asctime()
         insert_file_dict(name,os.path.getsize(args.path + "/" + name),str(time1))
-        #data["Files"].append({"name":name,"size":os.path.getsize(args.path + "/" + name),"ModDates":[time1]})
-        #Json_dump()
-        #print("\n")
 
     elif cmd == "cd":
         name = input("Directory name:")
         filepath = os.mkdir(args.path + "/" + name)
         time1 = time.asctime()
         insert_file_dict(name,os.path.getsize(args.path + "/" + name),str(time1))
-        #data["Files"].append({"name":name,"size":os.path.getsize(args.path + "/" + name),"ModDates":[time1]})
-        #Json_dump()
-        #print("\n")
 
     elif cmd == "df":
         name = input("File name:")
         os.remove(args.path + "/" + name)
-        delete_file_dict(name)
-        #for file in data['Files']:
-        #        if file['name'] == name:
-        #            data['Files'].remove(file)
-        #            Json_dump()
-        #            print("\n")
-        #            break
+        delete_file_dict(name)  
 
     elif cmd == "dd":
        name = input("Directory name:")
        os.rmdir(args.path + "/" + name)
        delete_file_dict(name)
-       #for file in data['Files']:
-       #       if file['name'] == name:
-       #            data['Files'].remove(file)
-       #            Json_dump()
-       #            print("\n")
-       #            break
 
     elif cmd == "m":
         old_name = input("Old Name:")
@@ -118,13 +95,6 @@ q - exists from the program
         shutil.move(old_path + '/' + old_name,new_path + '/' + new_name)
         time1 = time.asctime()
         update_name(old_name,new_name,str(time1))
-        #for file in data['Files']:
-        #        if file['name'] == old_name:
-        #            file['name'] = new_name
-        #            file['ModDates'].append(time1)
-        #            Json_dump()
-        #            print("\n")
-        #            break
 
     elif cmd == "i":
         name = input("File name:")
@@ -138,14 +108,8 @@ q - exists from the program
         file.write(text)
         file.close()
         time1 = time.asctime()
-        update_size(name,os.path.getsize(args.path + "/" + name),time1)
-        #for file in data['Files']:
-        #        if file['name'] == name:
-        #            file['size'] = os.path.getsize(args.path + "/" + name)
-        #            file['ModDates'].append(time1)
-        #            Json_dump()
-        #            print("\n")
-        #            break
+        size = os.path.getsize(args.path + "/" + name)
+        update_size(name,size,str(time1))
 
     elif cmd == "s":
         name = input("File name:")
