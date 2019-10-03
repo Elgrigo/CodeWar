@@ -1,10 +1,12 @@
 import json
 with open('new_data','r') as json_file:
     data = json.load(json_file)
+
 def print_search():
     for i in people_list:
         print('|' + str(i["NN"]) + ' |' + i["name"] + ' |' + i["phone"] + ' |' + i["email"])
         print('-' * 100)
+
 def search(s):
     k = 0
     people_list = list()
@@ -13,9 +15,11 @@ def search(s):
             k+=1
             people_list.append({"NN":k,"name":person['name'],"phone":person['phone'],"email":person['email']})
     return people_list
+
 def Json_dump():
     with open('new_data','w') as json_file:
         json.dump(data,json_file,indent=2)
+
 while True:
     print("""Address book manager. Please enter the command to continue:
 a - Add new contact
