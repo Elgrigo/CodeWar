@@ -5,7 +5,7 @@ import json
 import os
 import shutil
 import sqlite3
-
+import pandas as pd
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--path",help="your name",default="C:/Users/Toshiba/Desktop/CodeWarriors/Problems/File Manager/My Files",type=str)
@@ -61,8 +61,8 @@ q - exists from the program
     cmd = input("cmd>>")
 
     if cmd == "ls":
-        c.execute("SELECT * FROM files")
-        print(c.fetchall())
+        df = pd.read_sql_query("SELECT * FROM files", conn)
+        print(df.head(),"\n")
 
     elif cmd == "cf":
         name = input("File name:")
