@@ -1,7 +1,5 @@
-#from tabulate import tabulate
 import argparse 
 import time
-import json
 import os
 import shutil
 import sqlite3
@@ -20,11 +18,6 @@ c = conn.cursor()
 #                Size integer,
 #                ModDates text
 #                )""")
-
-def Json_dump():
-    with open('Data_Table','w') as json_file:
-        json.dump(data,json_file,indent=2)
-
 def insert_file_dict(name,size,time):
     with conn:
             c.execute("INSERT INTO files VALUES(:Name,:Size,:ModDates)",
@@ -116,8 +109,7 @@ q - exists from the program
         filepath = os.path.join(args.path,name)
         f = open(filepath,"r")
         content = f.read()
-        print(content)
-        print("\n")
+        print(content,"\n")
 
     elif cmd == "q":
         print("Bye :)")
